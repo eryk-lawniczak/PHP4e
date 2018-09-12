@@ -102,7 +102,30 @@ echo $lokal."<hr>";
 //nazwy z dużych litery
 
 define('NAZWISKO', 'Kowal');
-
 echo NAZWISKO;
-NAZWISKO = nowa;
+
+
+define('IMIE', 'janusz');
+echo IMIE;
+
+define ('WIEK', '20', true); //ignoruje wielkosc liter
+echo wiek."<hr>";
+
+//zmienne predefiniowane
+echo PHP_VERSION;
+echo gettype(PHP_VERSION);
+echo "<br>";
+$ver = PHP_VERSION;
+if ($ver > 7.1){
+  echo "Nowa wersja PHP<br>";
+}else{
+  echo "Stara wersja PHP<br>";
+}
+
+echo PHP_OS; // WINNT
+echo __LINE__."<BR>";
+echo __FILE__."<BR>";
+ECHO __DIR__."<BR>";
+
+
  ?>
