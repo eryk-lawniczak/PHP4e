@@ -60,3 +60,20 @@ echo "<hr>";
    ?>
    <td style="text-align:right;"></td>
 </table>
+<hr>
+<hr>
+<?php
+//while
+$cyfra = 50;
+  while ($cyfra <=100) {
+    echo "$cyfra"." ";
+    $cyfra ++;
+  }
+  echo "<br>";
+//dowhile
+$a = 4;
+do {
+  echo "$a ";
+  $a++;
+} while ($a <= 10);
+ ?>
