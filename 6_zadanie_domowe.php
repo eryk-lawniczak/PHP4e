@@ -1,68 +1,19 @@
 <?php
 $liczby = array(
     array(
-        array(
-            1,
-            2,
-            3
-        ),
-        array(
-            4,
-            5,
-            6,
-            7,
-            8
-        ),
-        array(
-            40,
-            50,
-            60,
-            70,
-            80
-        )
+        array(1,2,3),
+        array(4,5,6,7,8),
+        array(40,50,60,70,80)
     ),    
     array(
-        array(
-            41,
-            22,
-            35,
-            120,
-            13
-        ),
-        array(
-            'asia',
-            'julia',
-            'daniel',
-            'mateusz',
-            'kuba'
-        )
+        array(41,22,35,120,13),
+        array('asia','julia','daniel','mateusz','kuba')
     ),    
     array(
-        array(
-            11,
-            22,
-            33,
-            44,
-            33
-        ),array(
-            110,
-            220,
-            330,
-            440,
-            303
-        ),array(
-            0x11,
-            0x22,
-            0x33,
-            0x44,
-            0x33
-        ),array(
-            11,
-            22,
-            33,
-            44,
-            33
-        ),
+        array(11,22,33,44,33),
+        array(110,220,330,440,303),
+        array(0xddf1,0xf2,0xc3,0xa4,0xb3),
+        array(11,22,33,44,33),
     )
 );
 function wyswietl($arr){
