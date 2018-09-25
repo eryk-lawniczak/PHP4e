@@ -1,0 +1,60 @@
+stringi:
+nl2br(); - wyœwietlanie enteró z heardoca
+strtolower();
+strtoupper();
+ucfirst(); - pierwsza litera na du¿a
+ucwords(); - du¿a litera w ka¿dym s³owie
+wordwrap($zmienna, [iloœæ znaków], '[co po znakach np <br>]');
+strlen(); d³ugoœæ ci¹gu znaków
+strlen(ltrim()); - d³ugoœæ ci¹gu znaków bez bia³ych z lewej
+strlen(rtrim()); - d³ugoœæ ci¹gu znaków bez bia³ych z prawej
+strlen(trim()); - d³ugoœæ ci¹gu znaków bez bia³ych 
+strstr($zmienna, [czego szukamy], [true/false(D)]); przeszukiwanie stringa
+strpos($zmienna1, $zmienna2); pozycja 2 w 1 o ile jest
+str_replace("%cos%", "zawartoœæ coœ", "tu mogê u¿ywaæ %coœ%");
+        $cenzura = array("zsk", "zs³", "zse");
+        $zamiana = array("*__*" ,"*__*","*__*" );
+        $dane = $_POST['dane'];
+        $poprawioneDane = str_replace($cenzura, $zamiana, $dane);
+mb_strtolower(); wartoœci tablicy w strinach na ma³e litery czy cos takiego
+
+Operatory:
+gettype();
++ - ++ -- te sprawy
+(int) (bool) (unset) rzutowanie
+.= przy³¹czenie stringa do stringa
+
+
+Pêtle:
+for while dowhile foreach
+	foreach ($cyfry as $key => $array) {
+  		foreach ($array as $key1 => $value) {
+   		 echo $value." ";
+  		}	
+ 		 echo "<br>";
+	} foreach dla 2 wymiarowych tabel (skrócony)
+
+Formularze:
+no albo umiesz albo nie umiesz
+empty(); sprawdza czy zmienna nie jest pusta (formularz)
+isset()sprawdzenie czy jest dana zmienna (defined)
+header("location: plik.php"); przeniesienie do podstrony
+
+Tabele
+array(zmienna, zmienn, zmiennaa);
+wyœwietlanie pêtlami/heardoc/var_dump/print_r(w znacznikach pre)
+sort(); rosn¹co
+rsort() malej¹co
+arsort(); wed³ug zawartoœci
+ksort(); wed³ug klucza
+shuffle(); 
+range(1, 30) losowe licby z zakresu
+
+Daty 
+chocia¿ tego nie bêdzie
+date(""); zabawa z parametrami
+getdate(); otrzymujemy tablicê z dzisiejsz¹ dat¹ 
+	   mo¿na na niej wykonywaæ operacje wyci¹gaj¹c z niej dane 
+	   np.: $date['mday'];
+mktime();
+strtotime("now")
