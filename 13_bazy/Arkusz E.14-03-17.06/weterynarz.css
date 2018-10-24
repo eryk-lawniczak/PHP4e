@@ -1,0 +1,44 @@
+#baner{
+  background-color: rgb(105, 88, 89);
+  color: white;
+  font-size: 150%;
+  text-align: center;
+  height: 80px;
+}
+
+#lewy{
+  background-color: rgb(145, 127, 112);
+  width: 30%;
+  float: left;
+  height: 600px;
+}
+
+#srodek{
+  background-color: rgb(184, 168, 169);
+  width: 50%;
+  height: 600px;
+  float: left;
+}
+
+#prawy{
+  background-color: rgb(145,127,112);
+  width: 20%;
+  height: 600px;
+  float: left;
+}
+img{
+  float: right;
+}
+h2{
+  color: white;
+}
+table, td{
+  border: 1px solid black;
+}
+
+/*Panelu lewego: kolor RGB tła (145, 127, 112), szerokość 30%, wysokość 600 px
+Panelu środkowego: kolor RGB tła (184, 168, 169), szerokość 50%, wysokość 600 px
+Panelu prawego: kolor RGB tła (145, 127, 112), szerokość 20%, wysokość 600 px
+Nagłówka drugiego stopnia: biały kolor czcionki
+Obrazu: zdefiniowane opływanie do prawej strony
+Tabeli i komórek tabeli: obramowanie o szerokości 1 px*/

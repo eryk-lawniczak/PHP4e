@@ -1,0 +1,7 @@
+1) SELECT `id`,`imie`,`nazwisko`,`email` FROM `uzytkownik` WHERE id < 4;
+
+2) SELECT `tytul` FROM `ogloszenie` JOIN uzytkownik ON ogloszenie.uzytkownik_id = uzytkownik.id WHERE uzytkownik.id = 1;
+
+3) CREATE USER 'admin'@'localhost' IDENTIFIED BY 'zaq1@';
+
+4) GRANT SELECT, DELETE, UPDATE ON ogloszenia.uzytkownik TO 'admin'@'localhost';
