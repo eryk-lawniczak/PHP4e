@@ -83,7 +83,7 @@ if (isset($_POST['przycisk'])) {
   </div>
   <div id="stopka">
     <p>utworzeone przez: PESEL</p><br>
-    <a href="./kwerendy.txt">Pobierz blik z kwerendami</a>
+    <a href="./kwerendy.txt" download="kwerendy.txt">Pobierz blik z kwerendami</a>
   </div>
 
   </body>
