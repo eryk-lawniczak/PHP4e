@@ -17,25 +17,26 @@
     if ($connect = mysqli_connect('localhost', 'root', '', 'przychodnia')) {
     //echo "poprawnie";
     }else {
-      echo "błąd";
+      echo "błąd 1";
     }
-    if(mysqli_select_db($connect, 'weterynarz')){
-      //echo "Dobrze!";
-    }
+
     mysqli_set_charset($connect, 'utf8');
     $zapytanie = "SELECT `id`,`imie`,`nazwisko` FROM `pacjenci` WHERE 1";
 
     if ($rezultat = mysqli_query($connect, $zapytanie)) {
-      while (mysqli_fetch_row($rezultat)) {
-        echo "a";
+      while ($wynik = mysqli_fetch_assoc($rezultat)) {
+        echo "$wynik[id] ";
+        echo "$wynik[imie] ";
+        echo "$wynik[nazwisko] ";
+        echo "<br>";
       }
     }else {
-      echo "blad";
+      echo "blad 2";
     }
 
      ?>
     <br><br>
-    <form id="formularz" method="post">
+    <form id="formularz" method="post" action="./pacjent.php">
       <input type="text" name="id"><br>
       <input type="number" name="numer"><br>
       <input type="submit" name="przycisk" value="Pokaż dane">
