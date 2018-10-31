@@ -39,7 +39,7 @@
 
     <br><br>
     <form id="formularz" method="post">
-      <input type="text" name="id"><br>
+      Podaj ID<br>
       <input type="number" name="numer"><br>
       <input type="submit" name="przycisk" value="Pokaż dane">
 
