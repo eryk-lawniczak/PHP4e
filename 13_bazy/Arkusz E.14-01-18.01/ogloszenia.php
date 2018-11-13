@@ -16,6 +16,15 @@
         <li>Muzyka</li>
         <li>Filmy</li>
       </ol>
+      <?php
+      $polaczenie = @new mysqli('localhost', 'root', '', 'ogloszenia');
+      if (!$polaczenie->connect_errno) {
+        $zapytanie = "SELECT `imie`,`nazwisko`,`telefon`,`email` FROM `uzytkownik`";
+      }
+      else {
+        echo "Blad: $polaczenie->connect_errno";
+      }
+       ?>
       <img src="./ksiazki.jpg" alt="Kupię/ Sprzedam książkę">
       <table>
         <tr>
@@ -44,6 +53,39 @@
     <div class="prawy">
       <h2>Ogłoszenia kategorii książki</h2>
       <!-- skrypt 1 -->
+      <?php
+      $polaczenie = @new mysqli('localhost', 'root', '', 'ogloszenia');
+      if (!$polaczenie->connect_errno) {
+        //echo " Błąd: $polaczenie->connect_errno";
+        $zapytanie = "SELECT `id`,`tytul`,`tresc` FROM `ogloszenie` WHERE kategoria = 1;";
+
+        if($wynik = $polaczenie->query($zapytanie)) {
+            while($wiersz = $wynik->fetch_assoc()){
+            $zapytanie2 = "SELECT `telefon` FROM `uzytkownik` JOIN ogloszenie on uzytkownik.id = ogloszenie.uzytkownik_id WHERE ogloszenie.id = $wiersz[id];";
+            $wynik2 = $polaczenie->query($zapytanie2);
+            $wiersz2 = $wynik2->fetch_assoc();
+            echo<<<WIERSZ
+            <h3>$wiersz[id] $wiersz[tytul]</h3>
+            <p>$wiersz[tresc]</p>
+            <p>Telefon kontaktowy: $wiersz2[telefon]</p>
+WIERSZ;
+}
+          }
+        else{
+          echo "blad";
+        }
+      }else{
+        echo " Błąd: $polaczenie->connect_errno";
+        /*
+        serwer: 2002 dla złej nazwy hosta - localhost1
+        użytkownik: 1044
+        hasło: 1045
+        baza: 1049
+        */
+      }
+
+
+       ?>
     </div>
     <div class="stopka">
       Portal ogłoszeniowy opracował: PESEL
