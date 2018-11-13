@@ -16,31 +16,56 @@
         <li>Muzyka</li>
         <li>Filmy</li>
       </ol>
+      <div class="tabelka">
+        <table class="tabelka">
+          <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Telefon</th>
+            <th>email</th>
+          </tr>
 
-      <img src="./ksiazki.jpg" alt="Kupię/ Sprzedam książkę">
-      <table>
-        <tr>
-          <td>Liczba ogłoszeń</td>
-          <td>Cena ogłoszenia</td>
-          <td>Bonus</td>
-        </tr>
-        <tr>
-          <td>1 - 10</td>
-          <td>1 PLN</td>
-          <td rowspan="3"> Subskrybcja newslettera<br>
-            to upust 0,20 PLN na <br>ogłoszenie</td>
-        </tr>
-        <tr>
-          <td>11-50</td>
-          <td>0,80 PLN</td>
+          <?php
+          $polaczenie = @new mysqli('localhost', 'root', '', 'ogloszenia');
+          if (!$polaczenie->connect_errno) {
+            $zapytanie = "SELECT `id`, `imie`,`nazwisko`,`telefon`,`email` FROM `uzytkownik`";
+            if ($wynik = $polaczenie->query($zapytanie)) {
 
-        </tr>
-        <tr>
-          <td>51 i więcej</td>
-          <td>0,60 PLN</td>
+              while ($wiersz = $wynik->fetch_assoc()) {
 
-        </tr>
-      </table>
+                echo<<<wiersz
+                <tr>
+                  <td>$wiersz[imie]</td>
+                  <td>$wiersz[nazwisko]</td>
+                  <td>$wiersz[telefon]</td>
+                  <td>$wiersz[email]</td>
+                  <td><a href="./delete.php?usun=$wiersz[id]">Usuń</a></td>
+                  <td><a href="./update.php?usun=$wiersz[id]">Aktualizuj</a></td>
+
+                </tr>
+wiersz;
+
+              }
+            }else{
+              echo "blad";
+            }
+          }
+          else {
+            echo "Blad: $polaczenie->connect_errno";
+          }
+           ?>
+        </table>
+<h3>Dodaj użytkownika</h3>
+<form id="dodaj" action="./insert.php" method="post">
+  <input type="text" name="imie" placeholder="Imie"><br>
+  <input type="text" name="nazwisko" placeholder="nazwisko"><br>
+  <input type="text" name="telefon" placeholder="telefon"><br>
+  <input type="text" name="email" placeholder="email"><br>
+  <input type="submit" name="przycisk" placeholder="Dodaj użytkownika"><br>
+</form>
+
+
+      </div>
     </div>
     <div class="prawy">
       <h2>Ogłoszenia kategorii książki</h2>

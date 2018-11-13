@@ -16,7 +16,46 @@
         <li>Muzyka</li>
         <li>Filmy</li>
       </ol>
+      <div class="tabelka">
+        <table class="tabelka">
+          <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Telefon</th>
+            <th>email</th>
+          </tr>
 
+          <?php
+          $polaczenie = @new mysqli('localhost', 'root', '', 'ogloszenia');
+          if (!$polaczenie->connect_errno) {
+            $zapytanie = "SELECT `id`, `imie`,`nazwisko`,`telefon`,`email` FROM `uzytkownik`";
+            if ($wynik = $polaczenie->query($zapytanie)) {
+
+              while ($wiersz = $wynik->fetch_assoc()) {
+
+                echo<<<wiersz
+                <tr>
+                  <td>$wiersz[imie]</td>
+                  <td>$wiersz[nazwisko]</td>
+                  <td>$wiersz[telefon]</td>
+                  <td>$wiersz[email]</td>
+                  <td><a href="./delete.php?usun=$wiersz[id]">Usuń</a></td>
+
+                </tr>
+wiersz;
+
+              }
+            }else{
+              echo "blad";
+            }
+          }
+          else {
+            echo "Blad: $polaczenie->connect_errno";
+          }
+           ?>
+        </table>
+
+      </div>
       <img src="./ksiazki.jpg" alt="Kupię/ Sprzedam książkę">
       <table>
         <tr>

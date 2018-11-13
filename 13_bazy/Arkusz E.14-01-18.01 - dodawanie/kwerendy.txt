@@ -1,0 +1,7 @@
+zad1: SELECT `id`,`tytul`,`tresc` FROM `ogloszenie` WHERE kategoria = 1;
+
+zad2:SELECT `telefon` FROM `uzytkownik` JOIN ogloszenie on uzytkownik.id = ogloszenie.uzytkownik_id WHERE ogloszenie.id = 1;
+
+zad3:CREATE USER 'moderator'@'localhost' IDENTIFIED BY 'qwerty';
+
+zad4: GRANT SELECT, DELETE ON `ogloszenia`.`ogloszenie` TO 'moderator'@'localhost';

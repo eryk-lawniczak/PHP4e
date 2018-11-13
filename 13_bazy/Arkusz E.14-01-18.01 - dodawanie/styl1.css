@@ -1,0 +1,50 @@
+body, h1{
+  padding: 0;
+  margin: 0;
+
+}
+
+.baner{
+  background-color: #40271A;
+  color: white;
+  font-family: 'Tahoma';
+  text-align: center;
+  height: 80px;
+
+}
+.lewy{
+  background-color: #dbb29c;
+  width: 40%;
+  height: 700px;
+  float: left;
+}
+.prawy{
+  background-color: #ffe3d4;
+  width: 60%;
+  height: 700px;
+  float: left;
+}
+.stopka{
+  background-color: #40271a;
+  color: white;
+  text-align: right;
+  clear: both;
+}
+.lewy table, td,th{
+  border: 1px brown dashed;
+  border-collapse: collapse;
+}
+.lewy table{
+  width: 500px;
+  margin: 10px;
+  text-align: center;
+}
+.lewy img{
+  padding: 30px;
+}
+ol{
+  list-style-type: upper-roman;
+}
+#dodaj{
+
+}
