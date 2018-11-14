@@ -66,18 +66,24 @@ wiersz;
 <?php
 
 if (isset($_GET['update'])) {
+    $id = $_GET['update'];
+  $zapytanie = "SELECT `id`, `imie`,`nazwisko`,`telefon`,`email` FROM `uzytkownik` WHERE id='$id'";
+  $wynik = $polaczenie->query($zapytanie);
+  $wiersz = $wynik->fetch_assoc();
   ?>
-  <form id="dodaj" action="./ogloszenia-update.php" method="post">
-    <input type="text" name="imie" placeholder="Imie"><br>
-    <input type="text" name="nazwisko" placeholder="nazwisko"><br>
-    <input type="text" name="telefon" placeholder="telefon"><br>
-    <input type="text" name="email" placeholder="email"><br>
-    <input type="submit" name="przycisk" placeholder="Aktualizuj"><br>
+  <form id="dodaj" action="./update.php" method="post">
+    <input type="text" name="imie" placeholder="Imie" value="<?php echo $wiersz['imie'] ?>"><br>
+    <input type="text" name="nazwisko" value="<?php echo $wiersz['nazwisko'] ?>"><br>
+    <input type="text" name="telefon" value="<?php echo $wiersz['telefon'] ?>"><br>
+    <input type="text" name="email" value="<?php echo $wiersz['email'] ?>"><br>
+    <input type="hidden" name="id" value="<?php echo "$id"; ?>">
+    <input type="submit" name="przycisk" value="Aktualizuj"><br>
+
   </form>
   <?php
-  echo "ok";
+
 } else {
-  echo "blad";
+  echo "";
 }?>
 
       </div>

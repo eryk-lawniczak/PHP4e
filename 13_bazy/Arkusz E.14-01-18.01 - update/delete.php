@@ -4,9 +4,9 @@
     $id = $_GET['usun'];
     $zapytanie = "DELETE FROM `uzytkownik` WHERE `uzytkownik`.`id` = $id";
     $wynik = $polaczenie->query($zapytanie);
-    header('location: ./ogloszenia-dodawanie.php');
+    header('location: ./ogloszenia-update.php');
   }else {
-    header('location: ./ogloszenia-dodawanie.php');
+    header('location: ./ogloszenia-update.php');
   }
 
  ?>

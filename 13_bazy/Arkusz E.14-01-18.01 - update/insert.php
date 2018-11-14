@@ -10,16 +10,16 @@
 
       $zapytanie = "INSERT INTO `uzytkownik`(`id`, `imie`, `nazwisko`, `telefon`, `email`) VALUES (NULL,'$imie','$nazwisko','$telefon','$email')";
       $wynik = $polaczenie->query($zapytanie);
-      header('location: ./ogloszenia-dodawanie.php');
+      header('location: ./ogloszenia-update.php');
 
     }else {
-        header('location: ./ogloszenia-dodawanie.php');
+        header('location: ./ogloszenia-update.php');
     }
     // $zapytanie = "";
     // $wynik = $polaczenie->query($zapytanie);
     // header('location: ./ogloszenia-usuwanie.php');
   }else {
-    header('location: ./ogloszenia-usuwanie.php');
+    header('location: ./ogloszenia-update.php');
   }
 
  ?>
