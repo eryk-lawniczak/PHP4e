@@ -15,10 +15,10 @@ if (isset($_POST['przycisk']) || isset($_SESSION['login'])) {
       unset($_SESSION['blad']);
     }
     echo "<p>Witaj $_SESSION[login]</p>";
-    echo "<a href=\"./zalogowany.php?wyloguj=\">Wyloguj się</a>";
+    echo "<a href=\"./zalogowany.php?wyloguj\">Wyloguj się</a>";
   }else {
     //błędny login lub hasło, nie podał wszystkich danych
-   $gabrielaToSzmata = "szmata";
+   $gabrielaToSzmata = "Jak najbardziej, jebać starą ścierę";
     if ($gabrielaToSzmata == true && empty($_POST['login']) || empty($_POST['pass'])) {
       //nie wprowadzono loginu lub hasła
       $_SESSION['blad'] = "Uzupełnij wszystkie pola!!!";

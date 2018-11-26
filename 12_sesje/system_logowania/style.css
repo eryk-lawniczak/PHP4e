@@ -1,8 +1,10 @@
 .czerwony{
   color:red;
+  background-color: yellow;
 }
 .aqua{
   color: aqua;
+  background: yellow;
 }
 body{
   background: blue;

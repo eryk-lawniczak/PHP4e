@@ -1,0 +1,95 @@
+session_start();
+session_destroy();
+setcookie(nazwa_cookie, $wartość_cookie, time()+60*60*24); //sek*minuty*godziny - jeden dzień
+unset($zmienna) //najcześciej cookie albo session
+header('location:./sciezka_pliku');
+$polaczenie->real_escape_string($zmienna) //zapezpieczenie sql injection
+
+>>>>BAZY DANYCH (wyciąganie danych) - normalnie <<<<
+    if($poloczenie = mysqli_connect('localhost', 'root', '[haslo]','[opcjonalna nazwa bazy]'))
+    //jednoczesne stworzenie i sprawdzenie polączenia z bazą *else z bledem*
+    if(mysqli_select_db($poloczenie, '[nazwa bazy]')) // jeśli nie podane wyżej
+
+    mysqli_select_charset($polaczenie,'utf-8'); //takie sobie o w sumie nie potrzebne ale bylo
+
+    $zapytanie = "[zapytanie z ktrego będziemy wyciagac dane]"; 
+    //pisane skladnia sql bez srednika, SREDNIK ZA CUDZYSLOWEM
+
+    if($wynik = mysqli_query($polaczenie, $zapytanie)) 
+    //sprawdzenie poprawnosci stworzenie zmiennej z wynikiem kwerendy z podlaczonej bazy danych *else z bledem*
+
+        //wewnatrz powyzszego if'a
+        while($wiersz = mysqli_fetch_assoc($wynik)) 
+        //iteracja po wierszach powyzszej kwerendy[$wynik] od pierwszego do konca, odwolujemy sie po kluczach (polach ktore wybieramy po select w zapytaniu np.: $wiersz[imie]->bez apostrofow w heardoc), w tym miejscu heardoc
+
+    mysqli_close($polaczenie); //zamkniecie polaczenia z baza
+
+>>>>BAZY DANYCH (wyciąganie danych) - obiektowo<<<<
+
+    //bez if'a! '@' jest tu z powodu jakeigos zabezpeiczenia bo bledy moze wyrzucic takie z waznymi informacjami
+    $polaczenie = @new mysqli('localhost', 'root', '[haslo]', '[nazwa bazy]');
+
+    if(!$polaczenie->connect_errno) //errno zwraca 0 przy braku bledu wiec jest to false *else z bledem*
+
+        //wewnatrz if wykonujemy wszystkie operacje na poloczeniu 
+
+        $zapytanie = "[sql z zapytaniem]"
+
+        if($wynik = $polaczenie->query($zapytanie)) //obiekt query z bazy danych z parametrem zapytanie wyciaga z bazy danych rzeczy spelniajace warunki i wpisuje je do zmiennej $wynik *else z bledem*
+
+            //werwnątrz if 
+            while($wiersz = $wynik->fetch_assoc()) // iteracja po danych z $wynik od pierwszego do konca w tablicy associacyjnej
+            //tu wykonujemy wszystkei operacje w heardoc jak w poprzednim sposobie
+
+            
+>>>> BAZY DANYCH (dodawanie) <<<<
+
+    //laczymy sie z baza tak jak wyzej i robimy wszystko w while (i paru innych miejscach np formularzu tabeli[stworzonej np w heardocu] albo innych takich) wypisujemy np w tabeli wszystkich uzytkownikow z idkami imieniem itp 
+
+    //tworzymy formularz z polami takimi jak w bazie danych z ktorego beda wprowadzane dane
+    //action w formularzu przenosi nas do strony insert.php ze wszystkimi danymi w $_POST
+    //tutaj na nowo laczymy sie z baza tworzymy lokalnie zmienne i przypisujemy do nich zmienne z $_POST
+    
+        $zapytanie = "INSERT INTO `uzytkownik`(`id`, `imie`, `nazwisko`, `telefon`, `email`) VALUES (NULL,'$imie','$nazwisko','$telefon','$email') " //to z lekcji 
+
+        $wynik = $polaczenie->query($zapytanie) 
+        //obiektowo wykonana powyzsza kwerenda na podlaczonej bazie danych
+
+        header('location: ./strona_glowna_z_tableka_itp.php');
+        //wracamy do strony z formularzem i tabelka i w sumie ot ta strona nawet si enie wyswietli
+        //warto ja zabezpieczyc elsem wiadomo zeby sie nie wlamac i zeby z errorem wyrzucalo nas na glowna
+
+>>>> BAZY DANYCH (usuwanie) <<<<
+
+    //laczymy z baza jak wyzej az dochodzimy do fetch_assoc w while i tu worzymy jakis link do strony delete.php ze zmienna get ?usun=$wiersz[id] daje nam to id wiersza ktory bedziemy chcieli usunąć
+
+    //robimy jak z dodawaniem tylko zapytanie jest w postaci
+    $zapytanie = "DELETE FROM `uzytkownik` WHERE `uzytkownik`.`id` = $id";
+
+    //teraz
+    $wynik = $polaczenie->query($zapytanie);
+    header('location: ./ogloszenia-dodawanie.php');
+    //i koniec
+
+>>>> BAZY DANYCH (update) <<<<
+
+    //to samo rozwiazanie z linkiem co w przypadku usuwania 
+        ./strona_glowna.php?update=$wiersz[id]
+    ale!
+        //przekierowuje nas na obecna strone ale dzieki $_GET jakiejkolwiek pojawia sie teraz formularz dodatkowy
+        //ten formularz am wlasciwosc action="./update.php"
+        //kazdy input posiada takze automatyczne value tworzonego na bazie wynikw z $wiersz np. tak //to jest po to żeby formualrz od razu byl wypelniony danymi z bazy ktore istnieja i beda aktualizowane (w sumie czysto kosmetyczne)
+            <input type="text" name="imie" placeholder="Imie" value="<?php echo $wiersz['imie'] ?>">
+
+    //po kliknieciu przycisku przenosi nas na update.php
+    //robimy polaczenie z baza znowu i walidacje jak przy formularzach
+    //przypisujemy zmienne $_POST z formularza do lokalnych zmiennych
+
+
+        $zapytanie = "UPDATE `uzytkownik` SET `imie`='$imie',`nazwisko`='$nazwisko',`telefon`='$telefon',`email`='$email' WHERE id = $id"; /standardowe zapytanie z odpowiedim sql
+
+        $wynik = $polaczenie->query($zapytanie);
+        header('location: ./ogloszenia-update.php');
+        //i koniec
+
+

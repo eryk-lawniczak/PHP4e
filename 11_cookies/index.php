@@ -19,6 +19,7 @@ elseif (empty($_GET['wiek'])) {
 
 if (isset($_GET['cookie']) && $_GET['cookie'] == 1) {
   echo "<span style=\"color:red\">Usunięto ciasteczko wiek</span>";
+  echo $wiek;
 }
 
 ?>
