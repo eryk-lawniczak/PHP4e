@@ -16,10 +16,7 @@
   <body>
     <?php
     if (isset($_GET['rejestracja'])) {
-      if (isset($_SESSION['error'])) {
-        echo "$_SESSION[error]";
-        unset($_SESSION['error']);
-      }
+
 ?>
 <!-- novalidate pomija required -->
 <form action="./rejestracja.php" method="post" >
@@ -36,6 +33,10 @@
    <a href="./index.php">Zaloguj się</a>
 <?php
     }else {
+      if (isset($_SESSION['error'])) {
+        echo "$_SESSION[error]";
+        unset($_SESSION['error']);
+      }
       ?>
 <!-- autocomplete="off" -->
        <form action="./login.php" method="post" >

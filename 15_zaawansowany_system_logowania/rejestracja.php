@@ -33,7 +33,31 @@
     equal($email1, $email2, 'Email musi być identyczny');
     equal($haslo1, $haslo2, 'Hasła muszą być identyczne');
 
-    echo "1";
+    require_once('./connect.php');
+
+    $imie = $con->real_escape_string($imie);
+    $nazwisko = $con->real_escape_string($nazwisko);
+    $email = $con->real_escape_string($email1);
+    $pass = $con->real_escape_string($haslo1);
+    $miasto = $con->real_escape_string($miasto);
+
+    $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+    $query = "SELECT `email` FROM `user` WHERE 'email' = '$email'";
+
+    $result = $con->query($query);
+    if ($result->num_rows == 0) {
+      $query = "INSERT INTO `user`( `uprawnieniaid`, `imie`, `nazwisko`, `email`, `haslo`, `miasto`) VALUES (1,'$imie','$nazwisko','$email','$pass','$miasto')";
+
+      $con->query($query);
+
+      header('location: ./index.php');
+      $_SESSION['error'] = 'Prawidłowo!';
+    }else {
+      header('location: ./index.php?rejestracja=');
+      $_SESSION['error'] = 'Podane email jest zajęty';
+    }
+
   }else {
     header('location: ./index.php');
   }
