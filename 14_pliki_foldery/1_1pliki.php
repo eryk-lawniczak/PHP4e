@@ -5,6 +5,7 @@
     <title>Pliki i foldery</title>
   </head>
   <body>
+  <a href="./test/0.txt">klik</a>
     <?php
     $dir = "./test";
       if (!($fd = opendir($dir))) {
@@ -18,6 +19,7 @@
       }
       echo "</ul>";
       closedir($fd);
+
    ?>
 
   </body>
